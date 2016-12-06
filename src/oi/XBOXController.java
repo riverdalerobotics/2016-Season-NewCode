@@ -39,6 +39,11 @@ public class XBOXController extends Controller {
 
 	}
 
+	public boolean isAnyButtonPressed() {
+		return isADown() || isBDown() || isXDown() || isYDown() || isLeftBumperDown()
+				|| isLeftJoystickDown() || isRightBumperDown() || isRightJoystickDown() || is
+	}
+
 	public boolean isADown() {
 		return joystick.getRawButton(Button.X.getPort());
 	}
@@ -110,6 +115,10 @@ public class XBOXController extends Controller {
 		sb.append(	"Left Axis: X - " + getLeftX() + ", Y - " + getLeftY() + "  Left Trigger: " + getLeftTrigger());
 		sb.append(System.getProperty("line.separator"));
 		sb.append( "Right Axis: X - " + getRightX() + ", Y - " + getRightY() + "  Right Trigger: " + getRightTrigger());
+		sb.append(System.getProperty("line.separator"));
+		sb.append(System.getProperty("line.separator"));
+		sb.append("Buttons Pressed: ")
+		if
 		
 		return sb.toString();
 	}
