@@ -2,13 +2,9 @@ package oi;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-//TODO: Make Controller to an abstract class
 public abstract class Controller {
 
 	Joystick joystick = new Joystick(0);
-
-	// TODO: Externalize Controller to an XBOX class that extends Controller
-	// TODO: Finish all the button and axis enums
 
 	public abstract boolean isAnyButtonPressed();
 

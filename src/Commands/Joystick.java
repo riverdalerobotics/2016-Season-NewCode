@@ -7,6 +7,7 @@ public class Joystick extends Command {
 
     public Joystick() {
         requires(Robot.chassisSubsystem);
+        requires(Robot.shooterSubsystem);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +22,21 @@ public class Joystick extends Command {
   
     	Robot.chassisSubsystem.setSpeed(speed,turn);
     	
- 
+    	if(Robot.oi.isIntakePressed()){
+    		
+    		Robot.shooterSubsystem.IntakeBall();
+    		
+    	}else if(Robot.oi.isLowOutakePressed()){
+    		
+    		Robot.shooterSubsystem.LowOutake();
+    	
+    	}else if(Robot.oi.isHighOutakePressed()){
+    	
+    		Robot.shooterSubsystem.HighOutake();
+    	
+    	}else{
+    		Robot.shooterSubsystem.isBallIn();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

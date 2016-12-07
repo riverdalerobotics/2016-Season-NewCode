@@ -3,6 +3,7 @@ package Subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import robot.RobotMap;
 
 public class ChassisSubsystem extends Subsystem {
@@ -25,7 +26,7 @@ public class ChassisSubsystem extends Subsystem {
     	
     	//TODO: Add PID Controller!
     	
-    	if(Math.abs(turn) < 0.1){
+    	if(turn <= 0.1 && turn >= -0.1){
     		leftSpeed = speed;
     		rightSpeed = speed;
     	}else{
@@ -43,7 +44,11 @@ public class ChassisSubsystem extends Subsystem {
     }
     
     public void updateDashboard(){
-    	//TODO: Send Encoders to Dashboard
+    	SmartDashboard.putString("Right Motor: ", Double.toString(rightMotor.get()));
+    	SmartDashboard.putString("Left Motor: ", Double.toString(leftMotor.get()));
+    	SmartDashboard.putData("Left Encoder", leftEncoder);
+    	SmartDashboard.putData("Right Encoder", leftEncoder);
+
     }
 }
 

@@ -41,7 +41,7 @@ public class XBOXController extends Controller {
 
 	public boolean isAnyButtonPressed() {
 		return isADown() || isBDown() || isXDown() || isYDown() || isLeftBumperDown()
-				|| isLeftJoystickDown() || isRightBumperDown() || isRightJoystickDown() || is
+				|| isLeftJoystickDown() || isRightBumperDown() || isRightJoystickDown();
 	}
 
 	public boolean isADown() {
@@ -112,13 +112,13 @@ public class XBOXController extends Controller {
 	@Override
 	public String toString() {
 		StringBuilder sb= new StringBuilder();
+		
 		sb.append(	"Left Axis: X - " + getLeftX() + ", Y - " + getLeftY() + "  Left Trigger: " + getLeftTrigger());
 		sb.append(System.getProperty("line.separator"));
 		sb.append( "Right Axis: X - " + getRightX() + ", Y - " + getRightY() + "  Right Trigger: " + getRightTrigger());
 		sb.append(System.getProperty("line.separator"));
 		sb.append(System.getProperty("line.separator"));
-		sb.append("Buttons Pressed: ")
-		if
+		sb.append("Buttons Pressed: ");
 		
 		return sb.toString();
 	}

@@ -2,6 +2,7 @@
 package robot;
 
 import Subsystems.ChassisSubsystem;
+import Subsystems.ShooterSubsystem;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -18,13 +19,10 @@ import oi.OI;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
-	//TODO: Extend Robot to have an auto called UpdateSmartDashboard method
 	
 	public static final ChassisSubsystem chassisSubsystem = new ChassisSubsystem();
-	//TODO: Add shooterSubsystem
+	public static final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
 	public static OI oi;
-	//public static OI oi;
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -41,33 +39,18 @@ public class Robot extends IterativeRobot {
     }
 	
 	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
+		//Scheduler.getInstance().run();
 	}
 
 
     public void autonomousInit() {
-        autonomousCommand = (Command) chooser.getSelected();
-        
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
-			break;
-		case "Default Auto":
-		default:
-			autonomousCommand = new ExampleCommand();
-			break;
-		} */
-    	
-    	// schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+        //Scheduler.getInstance().run();
     }
 
     public void teleopInit() {
@@ -75,7 +58,6 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
     /**
@@ -83,6 +65,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        updateSmartDashboard();
     }
     
     /**
@@ -90,5 +73,11 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    public void updateSmartDashboard(){
+    	chassisSubsystem.updateDashboard();
+    	shooterSubsystem.updateDashboard();
+    	Robot.oi.updateDashboard();
     }
 }
