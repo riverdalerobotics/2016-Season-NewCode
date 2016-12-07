@@ -45,4 +45,6 @@ public class RobotMap {
 			return this.port;
 		}
 	}
+	
+	public static final double PID_ERROR_MULTIPLIER = 2.0;
 }
