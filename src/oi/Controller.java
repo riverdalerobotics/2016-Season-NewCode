@@ -39,4 +39,10 @@ public abstract class Controller {
 	public abstract double getLeftTrigger();
 
 	public abstract double getRightTrigger();
+
 }
+
+
+
+
+

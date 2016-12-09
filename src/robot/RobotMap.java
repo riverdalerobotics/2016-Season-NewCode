@@ -7,6 +7,7 @@ package robot;
  */
 public class RobotMap {
 
+	
 	public enum MotorMap{
 		LEFT_MOTOR(1),RIGHT_MOTOR(0);
 		
@@ -45,6 +46,7 @@ public class RobotMap {
 			return this.port;
 		}
 	}
-	
-	public static final double PID_ERROR_MULTIPLIER = 2.0;
+
+	public static final int INTAKE_MOTOR_SPEED = 5;
+
 }
